@@ -25,7 +25,7 @@
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $categoriaid);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Registro de Datos */
         public function insertarCategoria($sucursalid,$nombrecategoria){
@@ -35,7 +35,7 @@
             $query->bindParam(1, $sucursalid);
             $query->bindParam(2, $nombrecategoria);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Actualizar Registro */
         public function actualizarCategoria($id,$sucursalid,$nombrecategoria){
@@ -46,7 +46,7 @@
             $query->bindParam(2, $sucursalid);
             $query->bindParam(3, $nombrecategoria);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 

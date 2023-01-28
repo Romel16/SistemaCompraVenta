@@ -25,7 +25,7 @@
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $monedaid);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Registro de Datos */
         public function insertarMoneda($sucursalid,$nombrecategotria){
@@ -35,7 +35,7 @@
             $query->bindParam(1, $sucursalid);
             $query->bindParam(2, $nombrecategotria);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Actualizar Registro */
         public function actualizarMoneda($id,$sucursalid,$nombrecategotria){
@@ -46,7 +46,7 @@
             $query->bindParam(2, $sucursalid);
             $query->bindParam(3, $nombrecategotria);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 

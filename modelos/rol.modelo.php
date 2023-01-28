@@ -25,7 +25,7 @@
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $rolid);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Registro de Datos */
         public function insertarRol($sucursalid,$nombrerol){
@@ -35,7 +35,7 @@
             $query->bindParam(1, $sucursalid);
             $query->bindParam(2, $nombrerol);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Actualizar Registro */
         public function actualizarRol($id,$sucursalid,$nombrerol){
@@ -46,7 +46,7 @@
             $query->bindParam(2, $sucursalid);
             $query->bindParam(3, $nombrerol);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 

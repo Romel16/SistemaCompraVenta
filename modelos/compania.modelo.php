@@ -24,7 +24,7 @@
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $companiaid);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Registro de Datos */
         public function insertarCompania($nombrecompania){
@@ -33,7 +33,7 @@
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $nombrecompania);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Actualizar Registro */
         public function actualizarCompania($id,$nombrecompania){
@@ -43,7 +43,7 @@
             $query->bindParam(1, $id);
             $query->bindParam(2, $nombrecompania);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 

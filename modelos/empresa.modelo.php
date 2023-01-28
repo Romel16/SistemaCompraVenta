@@ -1,52 +1,54 @@
 <?php
-    class Unidad extends Conectar{
+    class Empresa extends Conectar{
         /* TODO:Listar Registros */
-        public function listarUnidadSucursal($sucursalid){
+        public function listarEmpresaSucursal($sucursalid){
             $conectar = parent::Conexion();
-            $mysql = "sp_ListaUnidadSucursal ?";
+            $mysql = "sp_ListaEmpresaSucursal ?";
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $sucursalid);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Listar Registro por ID en Especifico */
-        public function listarUnidad($unidadid){
+        public function listarEmpresa($empresaid){
             $conectar = parent::Conexion();
-            $mysql = "sp_ListaUnidad ?";
+            $mysql = "sp_ListaEmpresa ?";
             $query = $conectar->prepare($mysql);
-            $query->bindParam(1, $unidadid);
+            $query->bindParam(1, $empresaid);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
        /*  TODO: Eliminar o cambiar estado a eliminado */
-        public function eliminarUnidad($unidadid){
+        public function eliminarEmpresa($empresaid){
             $conectar = parent::Conexion();
-            $mysql = "sp_EliminarUnidad ?";
+            $mysql = "sp_EliminarEmpresa ?";
             $query = $conectar->prepare($mysql);
-            $query->bindParam(1, $unidadid);
+            $query->bindParam(1, $empresaid);
             $query->execute();
             //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Registro de Datos */
-        public function insertarUnidad($sucursalid,$nombreunidad){
+        public function insertarEmpresa($companiaid,$empresaid,$empresaRuc){
             $conectar = parent::Conexion();
-            $mysql = "sp_InsertarUnidad ?,?";
+            $mysql = "sp_InsertarEmpresa ?,?,?";
             $query = $conectar->prepare($mysql);
-            $query->bindParam(1, $sucursalid);
-            $query->bindParam(2, $nombreunidad);
+            $query->bindParam(1, $companiaid);
+            $query->bindParam(2, $empresaid);            
+            $query->bindParam(3, $empresaRuc);
             $query->execute();
             //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Actualizar Registro */
-        public function actualizarUnidad($id,$sucursalid,$nombreunidad){
+        public function actualizarEmpresa($companiaid,$empresaid,$empresaNombre,$empresaRuc){
             $conectar = parent::Conexion();
-            $mysql = "sp_UpdateUnidad ?,?,?";
+            $mysql = "sp_UpdateEmpresa ?,?,?,?";
             $query = $conectar->prepare($mysql);
-            $query->bindParam(1, $id);
-            $query->bindParam(2, $sucursalid);
-            $query->bindParam(3, $nombreunidad);
+            $query->bindParam(1, $companiaid);
+            $query->bindParam(2, $empresaid);
+            $query->bindParam(3, $empresaNombre);
+            $query->bindParam(4, $empresaRuc);
             $query->execute();
-           // return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 
