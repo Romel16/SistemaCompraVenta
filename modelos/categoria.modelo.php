@@ -7,7 +7,7 @@
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $sucursalid);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Listar Registro por ID en Especifico */
         public function listarCategoria($categoriaid){
@@ -16,7 +16,7 @@
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $categoriaid);
             $query->execute();
-            return $query->fetchAll(PDO::FETCH_ASSOC);
+            //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
        /*  TODO: Eliminar o cambiar estado a eliminado */
         public function eliminarCategoria($categoriaid){
