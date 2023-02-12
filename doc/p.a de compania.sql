@@ -33,7 +33,7 @@ END$$
 
 --REGISTRAR NUEVO REGISTRO
 delimiter $$
-CREATE PROCEDURE sp_Insertarcompania1( in compania_nombre VARCHAR(150))
+CREATE PROCEDURE sp_Insertarcompania( in compania_nombre VARCHAR(150))
 BEGIN
 	INSERT INTO compania
 	(companiaNombre,conpaniaFechaCreacion,companiaEstado)

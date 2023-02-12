@@ -146,7 +146,7 @@ CREATE TABLE proveedor(
 )ENGINE = INNODB;
 
 create table compra(
-compraId INTEGER,
+compraId INT not null auto_increment,
 compraSucursalId int,
 compraPagoId int,
 compraProveedorId int,
@@ -161,7 +161,11 @@ compraUsuarioId int,
 compraMonedaId int,
 compraDocumentoId int,
 compraFechaCreacion datetime,
-compraEstado int 
+compraEstado int (1),
+  Primary key (clienteId),
+  Check (clienteEstado = 'A' or clienteEstado = 'I’'),
+  Foreign key (clienteEmpresaId) references empresa(empresaId)
+)ENGINE = INNODB;
 )
 
 create table pago(
@@ -235,4 +239,15 @@ create table venta(
 	ventaComentario varchar(250),
 	ventaFechaCreacion datetime,
 	ventaEstado int(1),
+)
+
+create TABLE td_menu
+(td_menuId int,
+td_menuMenuId int,
+td_menuRolId int,
+td_menuPermisos VARCHAR(2),
+td_menuFechaCreacion datetime,
+td_menuEstado int(1)
+
+
 )

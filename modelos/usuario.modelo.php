@@ -45,19 +45,20 @@
             //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Actualizar Registro */
-        public function actualizarUsuario($sucursalid,$usuariocorreo,$usuarionombre,$usuarioapellido,$usuariodni,
+        public function actualizarUsuario($sucursalid,$usuarioid,$usuariocorreo,$usuarionombre,$usuarioapellido,$usuariodni,
                 $usuariotelefono,$usuariopassword,$rolid){
             $conectar = parent::Conexion();
-            $mysql = "sp_UpdateUsuario ?,?,?,?,?,?,?,?";
+            $mysql = "sp_UpdateUsuario ?,?,?,?,?,?,?,?,?";
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $sucursalid);
-            $query->bindParam(2, $usuariocorreo);
-            $query->bindParam(3, $usuarionombre);
-            $query->bindParam(4, $usuarioapellido);
-            $query->bindParam(5, $usuariodni);
-            $query->bindParam(6, $usuariotelefono);
-            $query->bindParam(7, $usuariopassword);
-            $query->bindParam(8, $rolid);
+            $query->bindParam(2, $usuarioid);
+            $query->bindParam(3, $usuariocorreo);
+            $query->bindParam(4, $usuarionombre);
+            $query->bindParam(5, $usuarioapellido);
+            $query->bindParam(6, $usuariodni);
+            $query->bindParam(7, $usuariotelefono);
+            $query->bindParam(8, $usuariopassword);
+            $query->bindParam(9, $rolid);
             $query->execute();
             //return $query->fetchAll(PDO::FETCH_ASSOC);
         }

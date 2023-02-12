@@ -3,7 +3,7 @@ PROVEEDOR
 ====================*/
 --Listar todos los registros por Sucursal
 delimiter $$
-CREATE PROCEDURE sp_listarProveedor(in empresa_id INT)
+CREATE PROCEDURE sp_listarProveedorporSucursal(in empresa_id INT)
 BEGIN
 	SELECT * FROM proveedor
 	WHERE

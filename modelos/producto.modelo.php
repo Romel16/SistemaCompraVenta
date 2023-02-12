@@ -38,8 +38,8 @@
             $query->bindParam(3, $productonombre);
             $query->bindParam(4, $productodescripcion);
             $query->bindParam(5, $unidadid);
-            $query->bindParam(6, $preciocompra);
-            $query->bindParam(7, $monedaid);
+            $query->bindParam(6, $monedaid);
+            $query->bindParam(7, $preciocompra);
             $query->bindParam(8, $precioventa);
             $query->bindParam(9, $productostock);
             $query->bindParam(10, $fechavencimiento);
@@ -48,22 +48,23 @@
             //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /* TODO: Actualizar Registro */
-        public function actualizarProducto($sucursalid,$categoriaid,$productonombre,$productodescripcion,
+        public function actualizarProducto($productoid,$sucursalid,$categoriaid,$productonombre,$productodescripcion,
         $unidadid,$monedaid,$preciocompra,$precioventa,$productostock,$fechavencimiento,$imagen){
             $conectar = parent::Conexion();
-            $mysql = "sp_UpdateProducto ?,?,?,?,?,?,?,?,?,?,?";
+            $mysql = "sp_UpdateProducto ?,?,?,?,?,?,?,?,?,?,?,?";
             $query = $conectar->prepare($mysql);
-            $query->bindParam(1, $sucursalid);
-            $query->bindParam(2, $categoriaid);
-            $query->bindParam(3, $productonombre);
-            $query->bindParam(4, $productodescripcion);
-            $query->bindParam(5, $unidadid);
-            $query->bindParam(6, $preciocompra);
+            $query->bindParam(1, $productoid);
+            $query->bindParam(2, $sucursalid);
+            $query->bindParam(3, $categoriaid);
+            $query->bindParam(4, $productonombre);
+            $query->bindParam(5, $productodescripcion);
+            $query->bindParam(6, $unidadid);
             $query->bindParam(7, $monedaid);
-            $query->bindParam(8, $precioventa);
-            $query->bindParam(9, $productostock);
-            $query->bindParam(10, $fechavencimiento);
-            $query->bindParam(11, $imagen);
+            $query->bindParam(8, $preciocompra);
+            $query->bindParam(9, $precioventa);
+            $query->bindParam(10, $productostock);
+            $query->bindParam(11, $fechavencimiento);
+            $query->bindParam(12, $imagen);
             $query->execute();
             //return $query->fetchAll(PDO::FETCH_ASSOC);
         }

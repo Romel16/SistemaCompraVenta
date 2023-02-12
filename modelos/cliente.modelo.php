@@ -3,7 +3,7 @@
         /* TODO:Listar Registros */
         public function listarClienteSucursal($empresaid){
             $conectar = parent::Conexion();
-            $mysql = "sp_ListaClienteSucursal ?";
+            $mysql = "sp_listarClienteporSucursal ?";
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $empresaid);
             $query->execute();
@@ -12,7 +12,7 @@
         /* TODO: Listar Registro por ID en Especifico */
         public function listarCliente($clienteid){
             $conectar = parent::Conexion();
-            $mysql = "sp_ListaCliente ?";
+            $mysql = "sp_listarCliente ?";
             $query = $conectar->prepare($mysql);
             $query->bindParam(1, $clienteid);
             $query->execute();
