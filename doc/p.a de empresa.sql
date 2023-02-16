@@ -4,7 +4,7 @@ EMPRESA
 ====================*/
 --Listar todos los registros por Sucursal
 delimiter $$
-CREATE PROCEDURE sp_listarEmpresaporSucursal( in compania_id INT)
+CREATE PROCEDURE sp_listarEmpresaporCompania( in compania_id INT)
 BEGIN
 	SELECT * FROM empresa
 	WHERE

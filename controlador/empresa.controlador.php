@@ -6,7 +6,7 @@ require_once("../modelos/compania.modelo.php");
     $compania = new Compania(); 
 
     switch($_GET["op"]){
-       /* TODO: guardar y editar; guardar cuando el ID esté vacio, y Actualizar cuando se envie el ID*/
+        /*TODO: guardar y editar; guardar cuando el ID esté vacio, y Actualizar cuando se envie el ID*/
         case "guardaryeditar":
             if (empty($_POST["companiaid"])) {
                 $compania->insertarCompania($_POST["companianombre"]);
@@ -48,4 +48,15 @@ require_once("../modelos/compania.modelo.php");
             $compania->eliminarCompania($_POST["companiaid"]);
                 break;
 
+        case "combo":
+            $datos = $empresa->empresacompaniaid($_POST("companiaid"));
+            if(is_array($datos)==true and count($datos)>0 ){
+                $html="";
+                $html.="<option selected>Seleccionar</option>";
+                foreach ($datos as $row) {
+                    $html.="<option values='".$row["empresaid"]."'>".$row["empresanombre"]."</option>";
+                }
+                echo $html;
+            }
+            break;
     }

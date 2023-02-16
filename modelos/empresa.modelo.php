@@ -1,11 +1,11 @@
 <?php
     class Empresa extends Conectar{
         /* TODO:Listar Registros */
-        public function listarEmpresaSucursal($sucursalid){
+        public function listarEmpresaSucursal($companiaid){
             $conectar = parent::Conexion();
             $mysql = "sp_listarEmpresaporSucursal ?";
             $query = $conectar->prepare($mysql);
-            $query->bindParam(1, $sucursalid);
+            $query->bindParam(1, $companiaid);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
