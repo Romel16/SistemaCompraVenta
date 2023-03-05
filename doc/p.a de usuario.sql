@@ -85,7 +85,7 @@ BEGIN
 	AND usuarioEstado='A';
 END$$
 
---CAMBIO DE CONTRASE�A
+--CAMBIO DE CONTRASEÑA
 delimiter $$
 CREATE PROCEDURE sp_UpdateContraseniaUsuario( in usuario_id INT, in usuario_password VARCHAR(50))
 BEGIN

@@ -62,6 +62,38 @@
             $query->execute();
             //return $query->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        /* TODO: acceso al sistema */
+        public function login(){
+            $conectar = parent::Conexion();
+            if (isset($_POST["enviar"])) {
+                $sucursal= $_POST["sucursal_id"];
+                $correo= $_POST["correo"];
+                $pass= $_POST["password"];
+
+                if (empty($sucursal) and empty($correo) and empty($pass)) {
+                    exit();
+                }else{
+                    $mysql = "sp_listarAccesoUsuario ?,?,?";
+                    $query = $conectar->prepare($mysql);
+                    $query->bindParam(1, $sucursal);
+                    $query->bindParam(2, $correo);
+                    $query->bindParam(3, $pass);
+                    $query->execute();
+                    $resultado = $query->fetch();
+                    if (is_array($resultado) and count($resultado)>0) {
+                        $_SESSION["usuario_id"]= $resultado["usuarioId"];
+                        $_SESSION["sucursal_id"]= $resultado["usuarioSucursalId"];
+
+                        header("Location:".Conectar::ruta()."vista/home/");
+                    }else{
+                        exit();
+                    }
+                }
+            }else{
+                exit();
+            }
+        }
     }
 
 ?>

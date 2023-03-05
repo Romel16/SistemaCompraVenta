@@ -48,6 +48,7 @@ require_once("../modelos/compania.modelo.php");
             $compania->eliminarCompania($_POST["companiaid"]);
                 break;
 
+               /* TODO: Listar Combo*/
         case "combo":
             $datos = $empresa->empresacompaniaid($_POST("companiaid"));
             if(is_array($datos)==true and count($datos)>0 ){

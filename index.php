@@ -1,10 +1,19 @@
+<?php
+    require_once("config/conexion.php");
+    if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
+        require_once("modelos/usuario.modelo.php");
+        $usuario = new Usuario();
+        $usuario->login();
+    }
+?>
+
 <!doctype html>
 <html lang="es" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
 
 <head>
 
     <meta charset="utf-8" />
-    <title>Sign In | Velzon - Admin & Dashboard Template</title>
+    <title>Sistema de Compra y Venta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -79,23 +88,23 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <form action="index.html">
+                                            <form action="" method="post" id = "login_form">
 
                                                 <div class="mb-3">
                                                     <label for="empresa" class="form-label">Empresa</label>
-                                                    <select type="text" class="form-control" id="empresa" placeholder="Ingrese C">
+                                                    <select type="text" class="form-control" id="empresa_id" name="empresa_id" arial-label="Seleccionar">
                                                         <option selected>Seleccionar</option>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="sucursal" class="form-label">Sucursal</label>
-                                                    <select type="text" class="form-control" id="sucursal" placeholder="Ingrese Sucursal">
+                                                    <select type="text" class="form-control" id="sucursal_id" name="sucursal_id" arial-label="Seleccionar">
                                                         <option selected>Seleccionar</option>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="correo" class="form-label">Correo Electronico</label>
-                                                    <input type="text" class="form-control" id="correo" placeholder="Ingrese Correo Electronico">
+                                                    <input type="text" class="form-control" id="correo" name="correo" placeholder="Ingrese Correo Electronico">
                                                 </div>
 
                                                 <div class="mb-3">
@@ -104,7 +113,7 @@
                                                     </div>
                                                     <label class="form-label" for="password">Contraseña</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5" placeholder="Ingrese Contraseña" id="password">
+                                                        <input type="password" class="form-control pe-5" placeholder="Ingrese Contraseña" id="password" name ="password">
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                     </div>
                                                 </div>
@@ -115,6 +124,7 @@
                                                 </div>
 
                                                 <div class="mt-4">
+                                                    <input type="hidden" name="enviar" class="form-control" value="si">
                                                     <button class="btn btn-success w-100" type="submit">Acceder</button>
                                                 </div>
 
